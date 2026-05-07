@@ -626,24 +626,6 @@
       <p>Su alma, ısıtma, program hatası ve pompa arızalarında hızlı çözüm.</p>
       <a class="service-link" href="#iletisim">Randevu al →</a>
     </div>
-    <div class="service-card">
-      <span class="service-icon">🔥</span>
-      <h3>Fırın & Ocak</h3>
-      <p>Elektrikli ve gazlı fırın, ocak, ateşleme sistemi tamiri.</p>
-      <a class="service-link" href="#iletisim">Randevu al →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">💨</span>
-      <h3>Klima & Isıtıcı</h3>
-      <p>Split, multi-split klima montaj, bakım ve tamir. Kombi ve elektrikli ısıtıcı servisi.</p>
-      <a class="service-link" href="#iletisim">Randevu al →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🖥️</span>
-      <h3>Küçük Ev Aletleri</h3>
-      <p>Süpürge, su ısıtıcı, kahve makinesi, ütü ve daha fazlası için ekonomik tamir.</p>
-      <a class="service-link" href="#iletisim">Randevu al →</a>
-    </div>
   </div>
 </section>
 
@@ -663,7 +645,7 @@
     <div class="section-tag">Hakkımızda</div>
     <h2 class="section-title">Güvenilir Tamir,<br>Uzman Eller</h2>
     <p class="section-sub" style="margin-bottom: 2rem;">
-      2009'dan bu yana binlerce haneye hizmet verdik.
+      2000'den bu yana binlerce haneye hizmet verdik.
       Sertifikalı teknisyenlerimiz, orijinal yedek parça kullanımı ve
       6 aylık garanti ile yanınızdayız.
     </p>
@@ -708,46 +690,47 @@
     <p class="section-sub">Formu doldurun, en kısa sürede sizi arayıp randevu oluşturalım.</p>
   </div>
   <div class="contact-grid">
-    <div>
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <div>
-            <h4>Telefon</h4>
-            <p>0 312 361 75 75</p>
-            <p>0 312 326 85 03</p>
-          </div>
+  <div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Telefon</h4>
+          <p data-config="telefon1"></p>
+          <p data-config="telefon2"></p>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">💬</div>
-          <div>
-            <h4>WhatsApp</h4>
-            <p>0530 872 09 51</p>
-          </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <p data-config="whatsapp"></p>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div>
-            <h4>E-posta</h4>
-            <p>info@tamirustam.com</p>
-          </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <h4>E-posta</h4>
+          <p data-config="mail"></p>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">🕐</div>
-          <div>
-            <h4>Çalışma Saatleri</h4>
-            <p>Hafta içi 08:00 – 20:00<br>Hafta sonu 09:00 – 18:00</p>
-          </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Çalışma Saatleri</h4>
+          <p data-config="calismaHaftaici"></p>
+          <p data-config="calismaHaftasonu"></p>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div>
-            <h4>Hizmet Bölgeleri</h4>
-            <p>Tüm il ve ilçeler (bölgenizi belirtin)</p>
-          </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Hizmet Bölgeleri</h4>
+          <p data-config="hizmetBolgesi"></p>
         </div>
       </div>
     </div>
+  </div>
     <div class="contact-form">
       <div class="form-row">
         <div class="form-group">
@@ -827,6 +810,18 @@
 </footer>
 
 <script>
+
+  const CONFIG = {
+    dukkanAdi: 'İbrahim Şahin Teknik Servisleri',
+    mail: 'ibrahimsahinteknikservisleri@gmail.com',
+    telefon1: '0 312 361 75 75',
+    telefon2: '0 312 326 85 03',
+    whatsapp: '0530 872 09 51',
+    calismaHaftaici: 'Hafta içi 08:00 – 20:00',
+    calismaHaftasonu: 'Hafta sonu 09:00 – 18:00',
+    hizmetBolgesi: 'Tüm il ve ilçeler (bölgenizi belirtin)',
+  };
+
   function toggleMenu() {
     const links = document.querySelector('.nav-links');
     if (links.style.display === 'flex') {
@@ -836,9 +831,36 @@
     }
   }
 
-  function formGonder() {
+ function formGonder() {
+    const ad = document.querySelector('input[placeholder="Ali Yılmaz"]').value.trim();
+    const tel = document.querySelector('input[placeholder="0555 000 00 00"]').value.trim();
+    const cihaz = document.querySelector('select').value;
+    const marka = document.querySelector('input[placeholder="Örn: Arçelik, Samsung"]').value.trim();
+    const ilce = document.querySelector('input[placeholder="Bölgeniz"]').value.trim();
+    const aciklama = document.querySelector('textarea').value.trim();
+
+    if (!ad || !tel || !cihaz || !aciklama) {
+      alert('Lütfen en azından adınızı, telefonunuzu, cihaz türünü ve arıza açıklamasını doldurun.');
+      return;
+    }
+
+    const konu = encodeURIComponent('Yeni Randevu Talebi — ' + cihaz);
+    const mesaj = encodeURIComponent(
+      'YENİ RANDEVU TALEBİ\n' +
+      '─────────────────────\n' +
+      'Ad Soyad  : ' + ad + '\n' +
+      'Telefon   : ' + tel + '\n' +
+      'Cihaz     : ' + cihaz + '\n' +
+      'Marka     : ' + (marka || 'Belirtilmedi') + '\n' +
+      'Bölge     : ' + (ilce || 'Belirtilmedi') + '\n' +
+      '─────────────────────\n' +
+      'Arıza Açıklaması:\n' + aciklama
+    );
+
+    window.location.href = 'mailto:' + CONFIG.mail + '?subject=' + konu + '&body=' + mesaj;
+
     const btn = document.querySelector('.form-submit');
-    btn.textContent = '✓ Talebiniz Alındı! Sizi arayacağız.';
+    btn.textContent = '✓ Mail uygulaması açılıyor...';
     btn.style.background = '#22c55e';
     btn.style.color = '#fff';
     setTimeout(() => {
@@ -858,6 +880,12 @@
         const links = document.querySelector('.nav-links');
         if (window.innerWidth < 900) links.style.display = 'none';
       }
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-config]').forEach(el => {
+      el.textContent = CONFIG[el.dataset.config];
     });
   });
 </script>
