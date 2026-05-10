@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
-content="Yenimahalle bölgesinde Arçelik ve Beko beyaz eşya teknik servis hizmeti. Aynı gün servis desteği.">
+content="Ankara Arçelik ve Beko beyaz eşya teknik servis hizmeti. Aynı gün servis desteği.">
 <title>Büyük Ev Aletleri Tamir Servisi | Ankara Teknik Servis</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -508,6 +508,30 @@ content="Yenimahalle bölgesinde Arçelik ve Beko beyaz eşya teknik servis hizm
   .hero p { animation-delay: 0.3s; }
   .hero-actions { animation-delay: 0.4s; }
   .hero-stats { animation-delay: 0.5s; }
+
+.fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    background: #22c55e;        /* değişti */
+    color: #fff;                /* değişti */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(34,197,94,0.4);   /* değişti */
+    z-index: 999;
+    transition: all 0.2s;
+  }
+  .fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(34,197,94,0.6);   /* değişti */
+  }
+</style>
 </style>
 </head>
 <body>
@@ -529,13 +553,13 @@ content="Yenimahalle bölgesinde Arçelik ve Beko beyaz eşya teknik servis hizm
 <!-- HERO -->
 <section class="hero" id="anasayfa">
   <div class="hero-content">
-    <div class="hero-badge">7/24 Servis Hizmeti</div>
+    <!-- <div class="hero-badge">7/24 Servis Hizmeti</div> -->
     <h1>
       Ev Aletleriniz
       <em>Güvende Bizimle.</em>
     </h1>
     <p>
-      Beyaz eşya, küçük ev aletleri ve elektronik cihazlarınızı
+      Her marka beyaz eşyayı
       profesyonel teknisyenlerimizle kapınıza gelip tamir ediyoruz.
       Hızlı, güvenilir, garantili.
     </p>
@@ -647,16 +671,16 @@ content="Yenimahalle bölgesinde Arçelik ve Beko beyaz eşya teknik servis hizm
     <div class="section-tag">Hakkımızda</div>
     <h2 class="section-title">Güvenilir Tamir,<br>Uzman Eller</h2>
     <p class="section-sub" style="margin-bottom: 2rem;">
-      2000'den bu yana binlerce haneye hizmet verdik.
+      1991'den bu yana binlerce haneye hizmet verdik.
       Sertifikalı teknisyenlerimiz, orijinal yedek parça kullanımı ve
-      6 aylık garanti ile yanınızdayız.
+      1 yıl parça garanti ile yanınızdayız.
     </p>
     <div class="about-features">
       <div class="about-feature">
         <div class="feature-icon">🛡️</div>
         <div class="feature-text">
-          <h4>6 Ay Garanti</h4>
-          <p>Tüm tamir işlemlerine 6 aya kadar garanti veriyoruz. Sorun tekrarlarsa ücretsiz geliriz.</p>
+          <h4>1 Yıl Parça Garantisi</h4>
+          <p>Tüm tamir işlemlerine 1 yıla kadar garanti veriyoruz.</p>
         </div>
       </div>
       <div class="about-feature">
@@ -689,7 +713,7 @@ content="Yenimahalle bölgesinde Arçelik ve Beko beyaz eşya teknik servis hizm
   <div class="section-header">
     <div class="section-tag">İletişim</div>
     <h2 class="section-title">Randevu Alın,<br>Biz Geliyoruz</h2>
-    <p class="section-sub">Formu doldurun, en kısa sürede sizi arayıp randevu oluşturalım.</p>
+    <p class="section-sub">Bizimle iletişime geçin, en kısa sürede sizi arayıp randevu oluşturalım.</p>
   </div>
   <div class="contact-grid">
   <div>
@@ -890,6 +914,16 @@ content="Yenimahalle bölgesinde Arçelik ve Beko beyaz eşya teknik servis hizm
       el.textContent = CONFIG[el.dataset.config];
     });
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-config]').forEach(el => {
+      el.textContent = CONFIG[el.dataset.config];
+    });
+
+    const fab = document.querySelector('.fab');
+    fab.href = 'tel:+90' + CONFIG.telefon1.replace(/\s/g, '').slice(1);
+  });
 </script>
+  <a class="fab" href="#">📞</a>
 </body>
 </html>
